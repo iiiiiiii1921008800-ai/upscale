@@ -1,26 +1,32 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "rootDir": "./",
-    "outDir": "./export",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitAny": false,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "paths": {
-      "@electron/*": ["./electron/*"],
-      "@/*": ["./renderer/*"],
-      "@common/*": ["./common/*"]
+      "@/*": ["./*"],
+      "@common/*": ["../common/*"],
+      "@components/*": ["./components/*"],
+      "@lib/utils": ["./lib/utils/*"]
     }
   },
   "include": [
-    "./electron/**/*",
-    "./common/**/*",
-    "./renderer/**/*",
-    "scripts/generate-schema.js",
-    "scripts/validate-schema.js"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../app.module.ts",
+    "../common/**/*"
   ],
-  "exclude": ["node_modules", "public", "renderer"]
+  "exclude": ["node_modules"]
 }
